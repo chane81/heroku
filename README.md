@@ -12,7 +12,15 @@
 ## 배포
 
 - 유념
-  > 빌드파일이 들어있는 `.next` 는 heroku 서버에 push 해야한다. gitignore 에 추가되면 안된다.
+  > 배포시에 `.next` 가 포함되지 않았다라고 경고가 나올 수 있는데 아래와 같이 package.json 의 script 부분을 수정해서 빌드하고 배포하면 된다.
+  ```json
+  	"dev": "next",
+		"build": "next build",
+		"start": "next start -p $PORT",
+		"heroku-postbuild": "next build"
+  ```
+
+
 
   > push 하기 전에 먼저 빌드부터 하고 서버에 배포해야한다.
 
@@ -57,3 +65,13 @@
 
 - 인증서 발급
   - openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
+
+## 인증서 add
+- 인증서들 보기
+  - heroku certs --app socket-server-node
+
+- 해당 git remote 이동
+  - heroku git:remote -a thawing-inlet-61413
+
+- 인증서 add
+  - heroku certs:add server.crt server.key --type endpoint
