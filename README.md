@@ -68,6 +68,8 @@
 - 인증서 발급
   > openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
 
+***
+
 ## 인증서 add
 - 인증서들 보기
   > heroku certs --app socket-server-node
