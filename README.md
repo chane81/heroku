@@ -3,7 +3,7 @@
 ## 기타 명령어
 
 - heroku 버전
-  - heroku --version
+  > heroku --version
 
 - 3rd-party buildpacks
   > heroku plugins:install heroku-repo
@@ -51,27 +51,29 @@
 
 - 참조 url
   - 인증서 발급과정
-    - https://devcenter.heroku.com/articles/ssl-certificate-self
+    > https://devcenter.heroku.com/articles/ssl-certificate-self
   - 인증서 적용 과정
-    - https://devcenter.heroku.com/articles/ssl
+    > https://devcenter.heroku.com/articles/ssl
 
 - 개인키 생성
-  - openssl genrsa -des3 -passout pass:x -out server.pass.key 2048
-  - openssl rsa -passin pass:x -in server.pass.key -out server.key
-  - del server.pass.key
+  > openssl genrsa -des3 -passout pass:x -out server.pass.key 2048
+
+  > openssl rsa -passin pass:x -in server.pass.key -out server.key
+
+  > del server.pass.key
 
 - 개인키로 요청서 생성
-  - openssl req -new -key server.key -out server.csr -config ../openssl.cnf
+  > openssl req -new -key server.key -out server.csr -config ../openssl.cnf
 
 - 인증서 발급
-  - openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
+  > openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
 
 ## 인증서 add
 - 인증서들 보기
-  - heroku certs --app socket-server-node
+  > heroku certs --app socket-server-node
 
 - 해당 git remote 이동
-  - heroku git:remote -a thawing-inlet-61413
+  > heroku git:remote -a thawing-inlet-61413
 
 - 인증서 add
-  - heroku certs:add server.crt server.key --type endpoint
+  > heroku certs:add server.crt server.key --type endpoint
