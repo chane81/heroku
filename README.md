@@ -20,8 +20,6 @@
 		"heroku-postbuild": "next build"
   ```
 
-
-
   > push 하기 전에 먼저 빌드부터 하고 서버에 배포해야한다.
 
 - login
